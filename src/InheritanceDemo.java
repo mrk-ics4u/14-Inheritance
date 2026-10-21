@@ -30,12 +30,12 @@ public class InheritanceDemo {
         System.out.println("Webster spawned " + baby.getName());
 
         // these don't compile: the parent doesn't have the child's methods
-        // goblin.getArmour();
-        // goblin.spawn();
+        //goblin.getArmour();
+        //goblin.spawn();
 
         // this doesn't compile either: health is private in Enemy, even to a child
         // (inside Boss.java) health = health - amount;
-
+        
         // overriding: the same call does different things
         goblin.takeDamage(10);
         dragon.takeDamage(10);           // armour blocks 8, so only 2 gets through
@@ -58,7 +58,7 @@ public class InheritanceDemo {
         }
 
         // the list's type is Enemy, so only Enemy methods can be called on its elements
-        // enemies.get(1).getArmour();    // doesn't compile
+        //enemies.get(1).getArmour();    // doesn't compile
     }
 
 }

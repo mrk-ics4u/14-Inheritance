@@ -13,7 +13,9 @@ public class Boss extends Enemy {
 
     // constructor: super(...) builds the Enemy part first, then set the new attribute
     public Boss(String name, int health, int damage, int armour) {
+        // calls the constructor in the parent class
         super(name, health, damage);
+        // then set any additional attributes the child has
         this.armour = armour;
     }
 
@@ -31,4 +33,5 @@ public class Boss extends Enemy {
         }
         super.takeDamage(blocked);      // reuse Enemy's version (it stops health at 0)
     }
+    
 }

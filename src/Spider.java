@@ -12,6 +12,7 @@ public class Spider extends Enemy {
 
     // constructor: the child decides the values it passes up to Enemy
     public Spider(String name) {
+        // all Spiders will have the health and damage (10 ,1)
         super(name, 10, 1);
     }
 

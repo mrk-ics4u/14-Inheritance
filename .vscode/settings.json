@@ -24,7 +24,7 @@
     "java.signatureHelp.enabled": false,
     "java.completion.postfix.enabled": false,
 
-    "chat.disableAIFeatures": true,
+    "chat.disableAIFeatures": false,
     "chat.commandCenter.enabled": false,
     "chat.agent.enabled": false,
     "github.copilot.enable": {
