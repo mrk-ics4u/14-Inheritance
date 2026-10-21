@@ -1,7 +1,7 @@
 /*
  * Name:        Lesson 14: Inheritance (Enemy.java)
  * Description: The Enemy class from Lesson 11, unchanged. It's the parent
- *              (superclass) of Boss and Slime. Used by InheritanceDemo.java.
+ *              (superclass) of Boss and Spider. Used by InheritanceDemo.java.
  * Created by:  Mr Kowalczewski
  * Last edited: 2026-10-13
  */

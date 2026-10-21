@@ -10,7 +10,7 @@ A game has more than one kind of enemy. A `Boss` has everything an `Enemy` has (
 
 Inheritance fits when the sentence "a ___ **is an** ___" is true:
 
-- A `Boss` is an `Enemy`. A `Slime` is an `Enemy`. Inheritance.
+- A `Boss` is an `Enemy`. A `Spider` is an `Enemy`. Inheritance.
 - A `Game` is an `Enemy`? No. A game **has** enemies, so it gets an `ArrayList<Enemy>` attribute instead.
 
 The class being inherited from is the **parent** (or **superclass**). The new class is the **child** (or **subclass**).
@@ -50,13 +50,13 @@ public class Boss extends Enemy {
           △                    △
           │                    │
 ┌─────────┴─────────────┐  ┌───┴───────────────────┐
-│ Boss                  │  │ Slime                 │
+│ Boss                  │  │ Spider                │
 ├───────────────────────┤  ├───────────────────────┤
 │ - armour : int        │  │                       │
 ├───────────────────────┤  ├───────────────────────┤
-│ + Boss(name : String, │  │ + Slime(name : String)│
-│     health : int,     │  │ + split() : Slime     │
-│     damage : int,     │  │                       │
+│ + Boss(name : String, │  │ + Spider(name :       │
+│     health : int,     │  │     String)           │
+│     damage : int,     │  │ + spawn() : Spider    │
 │     armour : int)     │  │                       │
 │ + getArmour() : int   │  │                       │
 │ + takeDamage(amount : │  │                       │
@@ -105,10 +105,10 @@ public Boss(String name, int health, int damage, int armour) {
 - `super(...)` must be the **first line** of the constructor.
 - Its arguments must match one of the parent's constructors.
 
-The child decides what to pass up. Every `Slime` starts with 10 health and 1 damage, so its constructor only needs a name:
+The child decides what to pass up. Every `Spider` starts with 10 health and 1 damage, so its constructor only needs a name:
 
 ```java
-public Slime(String name) {
+public Spider(String name) {
     super(name, 10, 1);
 }
 ```
@@ -130,8 +130,8 @@ public int getArmour() {
 ```
 
 ```java
-public Slime split() {
-    return new Slime(getName() + " Jr");     // getName() is inherited, so call it directly
+public Spider spawn() {
+    return new Spider(getName() + " Jr");     // getName() is inherited, so call it directly
 }
 ```
 
@@ -170,14 +170,14 @@ A `Boss` is an `Enemy`, so it can go anywhere an `Enemy` is expected, including 
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 enemies.add(new Enemy("Goblin", 30, 4));
 enemies.add(new Boss("Dragon", 200, 25, 8));
-enemies.add(new Slime("Blob"));
+enemies.add(new Spider("Webster"));
 
 for (Enemy e : enemies) {
     e.takeDamage(12);
 }
 ```
 
-Each object runs **its own** `takeDamage`. The goblin loses 12, the dragon loses 4, the slime is defeated. One loop handles every kind of enemy, and a new kind of enemy doesn't change the loop at all.
+Each object runs **its own** `takeDamage`. The goblin loses 12, the dragon loses 4, the spider is defeated. One loop handles every kind of enemy, and a new kind of enemy doesn't change the loop at all.
 
 The list's type is `Enemy`, so only `Enemy` methods can be called on its elements. `enemies.get(1).getArmour()` doesn't compile, even though element 1 is a `Boss`.
 
@@ -206,7 +206,7 @@ javac InheritanceDemo.java
 java InheritanceDemo
 ```
 
-`InheritanceDemo` uses `Enemy.java` and its two children, `Boss.java` and `Slime.java`. Open all three side by side.
+`InheritanceDemo` uses `Enemy.java` and its two children, `Boss.java` and `Spider.java`. Open all three side by side.
 
 Then work on the exercise in `ChequingAccount.java`. It extends the `BankAccount` class from Lesson 12.
 

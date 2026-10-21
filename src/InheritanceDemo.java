@@ -1,6 +1,6 @@
 /*
  * Name:        Lesson 14: Inheritance (InheritanceDemo.java)
- * Description: Uses Enemy and its two child classes, Boss and Slime:
+ * Description: Uses Enemy and its two child classes, Boss and Spider:
  *              inherited methods, new attributes and methods, overriding,
  *              and a list that holds all three.
  * Created by:  Mr Kowalczewski
@@ -8,7 +8,7 @@
  */
 import java.util.ArrayList;
 
-// Enemy.java is the parent class. Boss.java and Slime.java extend it.
+// Enemy.java is the parent class. Boss.java and Spider.java extend it.
 // Open all three side by side.
 
 public class InheritanceDemo {
@@ -18,20 +18,20 @@ public class InheritanceDemo {
         // creating child objects: each constructor calls super(...) to build the Enemy part
         Enemy goblin = new Enemy("Goblin", 30, 4);
         Boss dragon = new Boss("Dragon", 200, 25, 8);
-        Slime blob = new Slime("Blob");
+        Spider webster = new Spider("Webster");
 
-        // inherited methods: Boss and Slime never wrote getName, getHealth, or attack
+        // inherited methods: Boss and Spider never wrote getName, getHealth, or attack
         System.out.println(dragon.getName() + " has " + dragon.getHealth() + " health and attacks for " + dragon.attack());
-        System.out.println(blob.getName() + " has " + blob.getHealth() + " health and attacks for " + blob.attack());
+        System.out.println(webster.getName() + " has " + webster.getHealth() + " health and attacks for " + webster.attack());
 
         // new methods: only the child class has them
         System.out.println("Dragon armour: " + dragon.getArmour());
-        Slime small = blob.split();
-        System.out.println("Blob split into " + small.getName());
+        Spider baby = webster.spawn();
+        System.out.println("Webster spawned " + baby.getName());
 
         // these don't compile: the parent doesn't have the child's methods
         // goblin.getArmour();
-        // goblin.split();
+        // goblin.spawn();
 
         // this doesn't compile either: health is private in Enemy, even to a child
         // (inside Boss.java) health = health - amount;
@@ -46,8 +46,8 @@ public class InheritanceDemo {
         ArrayList<Enemy> enemies = new ArrayList<Enemy>();
         enemies.add(goblin);
         enemies.add(dragon);
-        enemies.add(blob);
-        enemies.add(small);
+        enemies.add(webster);
+        enemies.add(baby);
 
         // every element runs its OWN version of takeDamage
         for (Enemy e : enemies) {
